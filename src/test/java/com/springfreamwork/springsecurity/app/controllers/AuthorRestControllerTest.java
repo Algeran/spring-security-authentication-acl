@@ -57,7 +57,7 @@ public class AuthorRestControllerTest {
     }
 
     @Test
-    @WithMockUser("admin")
+    @WithMockUser(username = "admin", authorities = "EDIT")
     public void authorControllerShouldDeleteGenreAndRedirectToAllGenresView() throws Exception {
         mockMvc.perform(delete("/deleteAuthor")
                 .param("id", author.getId())
@@ -69,7 +69,7 @@ public class AuthorRestControllerTest {
     }
 
     @Test
-    @WithMockUser("admin")
+    @WithMockUser(username = "admin", authorities = "EDIT")
     public void authorControllerShouldUpdateGenreInDbAndRedirectToAllGenresView() throws Exception {
         when(authorService.getAuthorById(eq(author.getId()))).thenReturn(author);
 
@@ -103,7 +103,7 @@ public class AuthorRestControllerTest {
     }
 
     @Test
-    @WithMockUser("admin")
+    @WithMockUser(username = "admin", authorities = "EDIT")
     public void authorControllerShouldReturnViewWithNameCreateGenre() throws Exception {
         Author author = new Author(this.author.getName(), this.author.getSurname(), this.author.getCountry());
 

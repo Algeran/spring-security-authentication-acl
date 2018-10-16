@@ -52,7 +52,7 @@ public class BookRestControllerTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    @WithMockUser("admin")
+    @WithMockUser(username = "admin", authorities = "EDIT")
     public void bookControllerShouldDeleteGenreAndRedirectToAllGenresView() throws Exception {
         mockMvc.perform(delete("/deleteBook")
                 .param("id", book.getId())
@@ -92,7 +92,7 @@ public class BookRestControllerTest {
     }
 
     @Test
-    @WithMockUser("admin")
+    @WithMockUser(username = "admin", authorities = "EDIT")
     public void bookControllerShouldUpdateGenreInDbAndRedirectToAllGenresView() throws Exception {
         BookCreateDTO bookCreateDTO = new BookCreateDTO();
         bookCreateDTO.setId(book.getId());
@@ -136,7 +136,7 @@ public class BookRestControllerTest {
     }
 
     @Test
-    @WithMockUser("admin")
+    @WithMockUser(username = "admin", authorities = "EDIT")
     public void bookControllerShouldCreateGenreOnPostMethodAndRedirectToAllGenresView() throws Exception {
         BookCreateDTO bookCreateDTO = new BookCreateDTO();
         bookCreateDTO.setId(book.getId());

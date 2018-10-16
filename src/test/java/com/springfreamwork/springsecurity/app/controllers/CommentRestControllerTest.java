@@ -66,7 +66,7 @@ public class CommentRestControllerTest {
     }
 
     @Test
-    @WithMockUser("admin")
+    @WithMockUser(username = "admin", authorities = "EDIT")
     public void commentControllerShouldDeleteGenreAndRedirectToAllGenresView() throws Exception {
         mockMvc.perform(delete("/deleteComment")
                 .param("id", comment.getId())
