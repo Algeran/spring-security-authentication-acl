@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>List of all authors</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/library.css" th:href="@{css/library.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/authors.js"></script>
+</head>
+<body>
+<h1>Authors:</h1>
+
+<h4>Logged user: <span sec:authentication="name"></span> | <span sec:authentication="principal.authorities"></span></h4>
+
+<div class="divTable blueTable">
+    <div class="divTableHeading">
+        <div class="divTableRow">
+            <div class="divTableHead">№</div>
+            <div class="divTableHead">Name</div>
+            <div class="divTableHead">Surname</div>
+            <div class="divTableHead">Country</div>
+            <div class="divTableHead">Edit</div>
+            <div class="divTableHead">Delete</div>
+        </div>
+    </div>
+    <div class="divTableBody" id="authors-table">
+    </div>
+</div>
+
+<br/>
+
+<a href="index.html" th:href="@{/}">Back to main</a>
+<br/>
+<a href="createAuthor.html" th:href="@{/createAuthor}">Create author</a>
+<br/>
+<br/>
+<form id="logout-form" th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+</body>
+</html>

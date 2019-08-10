@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/library.css" th:href="@{css/library.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
+</head>
+<body>
+<h1>Welcome to our little library!</h1>
+
+<h4>Logged user: <span sec:authentication="name"></span></h4>
+
+<div class="divTable blueTable">
+    <div class="divTableHeading">
+        <div class="divTableRow">
+            <div class="divTableHead">Element</div>
+            <div class="divTableHead">Count</div>
+            <div class="divTableHead">Create</div>
+        </div>
+    </div>
+    <div class="divTableBody">
+        <div class="divTableRow">
+            <a class="divTableCell" href="allGenres.html" th:href="@{/genres}">Genres</a>
+            <div class="divTableCell" id="genres-count"></div>
+            <a class="divTableCell" href="createGenre.html" th:href="@{/createGenre}">Create genre</a>
+        </div>
+        <div class="divTableRow">
+            <a class="divTableCell" href="allBooks.html" th:href="@{/books}">Books</a>
+            <div class="divTableCell" id="books-count"></div>
+            <a class="divTableCell" href="createBook.html" th:href="@{/createBook}">Create book</a>
+        </div>
+        <div class="divTableRow">
+            <a class="divTableCell" href="allAuthors.html" th:href="@{/authors}">Authors</a>
+            <div class="divTableCell" id="authors-count"></div>
+            <a class="divTableCell" href="createAuthor.html" th:href="@{/createAuthor}">Create author</a>
+        </div>
+        <div class="divTableRow">
+            <a class="divTableCell" href="allComments.html" th:href="@{/comments}">Comments</a>
+            <div class="divTableCell" id="comments-count"></div>
+            <a class="divTableCell" href="createComment.html" th:href="@{/createComment}">Create comment</a>
+        </div>
+    </div>
+</div>
+
+<br/>
+<form id="logout-form" th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+</body>
+</html>

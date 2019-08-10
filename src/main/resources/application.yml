@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      host: host
+      port: port
+      database: otushomework
+  datasource:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:acl_db
+      username: sa
+      password:
+      schema: classpath:schema.sql

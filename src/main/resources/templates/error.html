@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bad Request</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/library.css" th:href="@{css/library.css}">
+</head>
+<body>
+<h1>Error Page</h1>
+<p>Application has encountered an error</p>
+<p th:text="'Got exception: ' + ${exception}">Exception text</p>
+<p th:text="'On url: ' + ${url}">url</p>
+<a href="index.html" th:href="@{/}">Back to main</a>
+</body>
+</html>
